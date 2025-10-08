@@ -1,9 +1,10 @@
-import download from "../../../assets/icon-downloads.png";
-import star from "../../../assets/icon-ratings.png";
+import { Link } from "react-router";
+import download from "../../assets/icon-downloads.png";
+import star from "../../assets/icon-ratings.png";
 
-const Card = ({ app }) => {
+const App = ({ app }) => {
 	return (
-		<div className="bg-white rounded-lg p-4 mx-2 lg:mx-0">
+		<Link to={`/app/${app.id}`} className="bg-white rounded-lg p-4 mx-2 lg:mx-0 cursor-pointer">
 			<div className="flex items-center">
 				<img className="rounded-lg w-full mb-4 bg-[#D9D9D9]" src={app.image} alt="" />
 			</div>
@@ -20,8 +21,8 @@ const Card = ({ app }) => {
 					{app.ratingAvg}
 				</p>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
-export default Card;
+export default App;

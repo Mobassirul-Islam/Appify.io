@@ -1,12 +1,19 @@
-import { Link, NavLink, useLoaderData } from "react-router";
+import { Link, NavLink } from "react-router";
 import playStore from "../../assets/play store.svg";
 import appStore from "../../assets/app store.svg";
 import banner from "../../assets/hero.png";
-import Card from "./Card/Card";
+import useApps from "../../Hooks/useApps";
+import App from "../App/App";
 
 const Home = () => {
-	const apps = useLoaderData();
+	const {apps} = useApps();
 	const visible = apps.slice(0, 8);
+
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+		});
+	};
 
 	return (
 		<div>
@@ -83,11 +90,15 @@ const Home = () => {
 			<div className="grid grid-cols-1 lg:grid-cols-4 gap-4 container mx-auto mb-5 lg:mb-10">
 				{/* Card */}
 				{visible.map((app) => (
-					<Card key={app.id} app={app}></Card>
+					<App key={app.id} app={app}></App>
 				))}
 			</div>
 			<div className="flex justify-center items-center mb-5 lg:mb-20">
-				<NavLink to="/apps" className="bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white text-base font-semibold py-2 px-4 rounded-sm">
+				<NavLink
+					onClick={scrollToTop}
+					to="/apps"
+					className="bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-white text-base font-semibold py-2 px-4 rounded-sm"
+				>
 					Show All
 				</NavLink>
 			</div>

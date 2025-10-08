@@ -7,18 +7,26 @@ import Home from "./components/Home/Home.jsx";
 import Install from "./components/Install/Install.jsx";
 import Apps from "./components/Apps/Apps.jsx";
 import Root from "./Root.jsx";
+import AppDetails from "./components/App Details/AppDetails.jsx";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		Component: Root,
+    hydrateFallbackElement: <h1>Loading...</h1>,
 		children: [
 			{
 				index: true,
-        loader: () => fetch("apps.json"),
 				Component: Home,
 			},
-			{ path: "apps", Component: Apps },
+			{ 
+        path: "apps",
+        Component: Apps,
+      },
+      {
+        path: "app/:id",
+        Component: AppDetails,
+      },
 			{ path: "install", Component: Install },
 		],
 	},
