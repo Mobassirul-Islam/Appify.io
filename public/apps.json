@@ -1,0 +1,218 @@
+[
+	{
+		"image": "https://img.icons8.com/color/256/chat.png",
+		"title": "ChatWave",
+		"companyName": "Wave Technologies",
+		"id": 1,
+		"description": "A modern chat application for connecting with friends globally.",
+		"size": 45,
+		"reviews": 1200,
+		"ratingAvg": 4.5,
+		"downloads": 150000,
+		"ratings": [
+			{ "name": "1 star", "count": 50 },
+			{ "name": "2 star", "count": 80 },
+			{ "name": "3 star", "count": 200 },
+			{ "name": "4 star", "count": 400 },
+			{ "name": "5 star", "count": 470 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/dumbbell.png",
+		"title": "FitTrack",
+		"companyName": "Healthify Co.",
+		"id": 2,
+		"description": "Track your workouts, calories, and daily progress with FitTrack.",
+		"size": 52,
+		"reviews": 980,
+		"ratingAvg": 4.2,
+		"downloads": 120000,
+		"ratings": [
+			{ "name": "1 star", "count": 60 },
+			{ "name": "2 star", "count": 70 },
+			{ "name": "3 star", "count": 190 },
+			{ "name": "4 star", "count": 300 },
+			{ "name": "5 star", "count": 360 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/music.png",
+		"title": "TuneBox",
+		"companyName": "Sound Labs",
+		"id": 3,
+		"description": "Stream your favorite music with high-quality audio playback.",
+		"size": 60,
+		"reviews": 2000,
+		"ratingAvg": 4.8,
+		"downloads": 500000,
+		"ratings": [
+			{ "name": "1 star", "count": 30 },
+			{ "name": "2 star", "count": 50 },
+			{ "name": "3 star", "count": 150 },
+			{ "name": "4 star", "count": 400 },
+			{ "name": "5 star", "count": 1370 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/news.png",
+		"title": "DailyPost",
+		"companyName": "Info Media",
+		"id": 4,
+		"description": "Get the latest news from around the world, personalized for you.",
+		"size": 38,
+		"reviews": 720,
+		"ratingAvg": 4.1,
+		"downloads": 90000,
+		"ratings": [
+			{ "name": "1 star", "count": 40 },
+			{ "name": "2 star", "count": 60 },
+			{ "name": "3 star", "count": 150 },
+			{ "name": "4 star", "count": 200 },
+			{ "name": "5 star", "count": 270 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/online-store.png",
+		"title": "ShopEase",
+		"companyName": "EasyCart Ltd.",
+		"id": 5,
+		"description": "An online shopping platform with exclusive deals and discounts.",
+		"size": 80,
+		"reviews": 1600,
+		"ratingAvg": 4.6,
+		"downloads": 250000,
+		"ratings": [
+			{ "name": "1 star", "count": 70 },
+			{ "name": "2 star", "count": 100 },
+			{ "name": "3 star", "count": 200 },
+			{ "name": "4 star", "count": 500 },
+			{ "name": "5 star", "count": 730 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/partly-cloudy-day.png",
+		"title": "WeatherNow",
+		"companyName": "SkyNet Apps",
+		"id": 6,
+		"description": "Real-time weather forecasts and radar updates in your area.",
+		"size": 35,
+		"reviews": 890,
+		"ratingAvg": 4.3,
+		"downloads": 110000,
+		"ratings": [
+			{ "name": "1 star", "count": 50 },
+			{ "name": "2 star", "count": 60 },
+			{ "name": "3 star", "count": 160 },
+			{ "name": "4 star", "count": 270 },
+			{ "name": "5 star", "count": 350 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/calendar.png",
+		"title": "TaskMate",
+		"companyName": "Productive Inc.",
+		"id": 7,
+		"description": "Organize your daily tasks and increase productivity effortlessly.",
+		"size": 40,
+		"reviews": 560,
+		"ratingAvg": 4.0,
+		"downloads": 70000,
+		"ratings": [
+			{ "name": "1 star", "count": 40 },
+			{ "name": "2 star", "count": 60 },
+			{ "name": "3 star", "count": 120 },
+			{ "name": "4 star", "count": 160 },
+			{ "name": "5 star", "count": 180 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/around-the-globe.png",
+		"title": "TripGo",
+		"companyName": "GlobeTrek",
+		"id": 8,
+		"description": "Plan your dream trips and find affordable flight deals easily.",
+		"size": 55,
+		"reviews": 1300,
+		"ratingAvg": 4.7,
+		"downloads": 180000,
+		"ratings": [
+			{ "name": "1 star", "count": 40 },
+			{ "name": "2 star", "count": 70 },
+			{ "name": "3 star", "count": 130 },
+			{ "name": "4 star", "count": 390 },
+			{ "name": "5 star", "count": 670 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/camera.png",
+		"title": "Snapify",
+		"companyName": "Lens Media",
+		"id": 9,
+		"description": "Capture stunning photos and share them instantly with friends.",
+		"size": 48,
+		"reviews": 1450,
+		"ratingAvg": 4.6,
+		"downloads": 230000,
+		"ratings": [
+			{ "name": "1 star", "count": 50 },
+			{ "name": "2 star", "count": 70 },
+			{ "name": "3 star", "count": 160 },
+			{ "name": "4 star", "count": 400 },
+			{ "name": "5 star", "count": 770 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/book.png",
+		"title": "Readify",
+		"companyName": "BookHub",
+		"id": 10,
+		"description": "Read, download, and share your favorite e-books in one app.",
+		"size": 62,
+		"reviews": 1100,
+		"ratingAvg": 4.4,
+		"downloads": 140000,
+		"ratings": [
+			{ "name": "1 star", "count": 60 },
+			{ "name": "2 star", "count": 80 },
+			{ "name": "3 star", "count": 190 },
+			{ "name": "4 star", "count": 300 },
+			{ "name": "5 star", "count": 470 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/video-playlist.png",
+		"title": "Streamly",
+		"companyName": "NextGen Media",
+		"id": 11,
+		"description": "Watch, share, and download trending videos anytime, anywhere.",
+		"size": 78,
+		"reviews": 2000,
+		"ratingAvg": 4.8,
+		"downloads": 600000,
+		"ratings": [
+			{ "name": "1 star", "count": 50 },
+			{ "name": "2 star", "count": 70 },
+			{ "name": "3 star", "count": 150 },
+			{ "name": "4 star", "count": 400 },
+			{ "name": "5 star", "count": 1330 }
+		]
+	},
+	{
+		"image": "https://img.icons8.com/color/256/money.png",
+		"title": "PayWise",
+		"companyName": "FinTech Global",
+		"id": 12,
+		"description": "Manage your payments and track expenses in one secure app.",
+		"size": 50,
+		"reviews": 950,
+		"ratingAvg": 4.3,
+		"downloads": 125000,
+		"ratings": [
+			{ "name": "1 star", "count": 40 },
+			{ "name": "2 star", "count": 70 },
+			{ "name": "3 star", "count": 150 },
+			{ "name": "4 star", "count": 280 },
+			{ "name": "5 star", "count": 410 }
+		]
+	}
+]
