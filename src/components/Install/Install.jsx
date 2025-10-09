@@ -3,14 +3,20 @@ import star from "../../assets/icon-ratings.png";
 import downloadIcon from "../../assets/icon-downloads.png";
 import { toast } from "react-toastify";
 import AppError from "../App Error/AppError";
+import Skeleton from "../Skeleton/Skeleton";
 
 const Install = () => {
+	const [loading, setLoading] = useState(true);
 	const [sortOrder, setSortOrder] = useState("none");
 	const [appList, setAppList] = useState([]);
 
 	useEffect(() => {
-		const installedApps = JSON.parse(localStorage.getItem("installList"));
-		if (installedApps) setAppList(installedApps);
+		setLoading(true);
+		setTimeout(() => {
+			const installedApps = JSON.parse(localStorage.getItem("installList"));
+			if (installedApps) setAppList(installedApps);
+			setLoading(false);
+		}, 2000);
 	}, []);
 
 	const sortedApps = (() => {
@@ -21,15 +27,15 @@ const Install = () => {
 		} else {
 			return appList;
 		}
-	}) ()
+	})();
 
 	const handleUninstall = (id) => {
 		const existingInstall = JSON.parse(localStorage.getItem("installList"));
-		let updatedInstall = existingInstall.filter(ex => ex.id !== id);
-		setAppList(updatedInstall)
-		toast("Uninstalled Successfully")
+		let updatedInstall = existingInstall.filter((ex) => ex.id !== id);
+		setAppList(updatedInstall);
+		toast("Uninstalled Successfully");
 		localStorage.setItem("installList", JSON.stringify(updatedInstall));
-	}
+	};
 
 	return (
 		<div className="container mx-auto">
@@ -59,51 +65,55 @@ const Install = () => {
 				</label>
 			</div>
 
-			{/* If no apps found */}
-			<div>
-				{
-					sortedApps.length == 0 && <AppError></AppError>
-				}
-			</div>
-
 			{/* installed apps */}
-			<div className="flex flex-col gap-2 lg:gap-4 mb-5 lg:mb-20">
-				{/* apps list */}
-				{sortedApps.map((app) => (
-					<div className="bg-white rounded-md flex justify-between items-center p-4 mx-2 lg:mx-0">
-						<div className="flex items-center gap-3">
-							<img
-								className="bg-[#D9D9D9] rounded-sm w-[80px]"
-								src={app.image}
-								alt=""
-							/>
-							<div className="">
-								<h3 className="text-[#001931] text-xl font-medium mb-0.5 lg:mb-4">
-									{app.title}
-								</h3>
-								<div className="lg:flex items-center gap-2">
-									<div className="flex items-center gap-1">
-										<img className="w-[16px]" src={downloadIcon} alt="" />
-										<p className="text-[#00D390]">{app.downloads}M</p>
-									</div>
-									<div className="flex items-center gap-1">
-										<img className="w-[16px]" src={star} alt="" />
-										<p className="text-[#FF8811]">{app.ratingAvg}</p>
-									</div>
-									<div>
-										<p className="text-[#627382]">{app.size}MB</p>
+			{loading ? (
+				<Skeleton count={1}></Skeleton>
+			) : (
+				<div className="flex flex-col gap-2 lg:gap-4 mb-5 lg:mb-20">
+					{/* apps list */}
+					{sortedApps.map((app) => (
+						<div className="bg-white rounded-md flex justify-between items-center p-4 mx-2 lg:mx-0">
+							<div className="flex items-center gap-3">
+								<img
+									className="bg-[#D9D9D9] rounded-sm w-[80px]"
+									src={app.image}
+									alt=""
+								/>
+								<div className="">
+									<h3 className="text-[#001931] text-xl font-medium mb-0.5 lg:mb-4">
+										{app.title}
+									</h3>
+									<div className="lg:flex items-center gap-2">
+										<div className="flex items-center gap-1">
+											<img className="w-[16px]" src={downloadIcon} alt="" />
+											<p className="text-[#00D390]">{app.downloads}M</p>
+										</div>
+										<div className="flex items-center gap-1">
+											<img className="w-[16px]" src={star} alt="" />
+											<p className="text-[#FF8811]">{app.ratingAvg}</p>
+										</div>
+										<div>
+											<p className="text-[#627382]">{app.size}MB</p>
+										</div>
 									</div>
 								</div>
 							</div>
+							<div>
+								<button
+									onClick={() => {
+										handleUninstall(app.id);
+									}}
+									className="bg-[#00D390] text-lg font-semibold cursor-pointer text-white py-2 px-3 rounded-sm"
+								>
+									Uninstall
+								</button>
+							</div>
 						</div>
-						<div>
-							<button onClick={()=>{handleUninstall(app.id)}} className="bg-[#00D390] text-lg font-semibold cursor-pointer text-white py-2 px-3 rounded-sm">
-								Uninstall
-							</button>
-						</div>
-					</div>
-				))}
-			</div>
+					))}
+				</div>
+			)}
+			{/* If no apps found */}
+			<div>{sortedApps.length == 0 && <AppError></AppError>}</div>
 		</div>
 	);
 };

@@ -4,9 +4,10 @@ import appStore from "../../assets/app store.svg";
 import banner from "../../assets/hero.png";
 import useApps from "../../Hooks/useApps";
 import App from "../App/App";
+import Skeleton from "../Skeleton/Skeleton";
 
 const Home = () => {
-	const {apps} = useApps();
+	const { apps, loading } = useApps();
 	const visible = apps.slice(0, 8);
 
 	const scrollToTop = () => {
@@ -87,12 +88,19 @@ const Home = () => {
 				</p>
 			</div>
 			{/* Cards section */}
-			<div className="grid grid-cols-1 lg:grid-cols-4 gap-4 container mx-auto mb-5 lg:mb-10">
-				{/* Card */}
-				{visible.map((app) => (
-					<App key={app.id} app={app}></App>
-				))}
-			</div>
+			{
+				// Skeleton loader
+				loading ? (
+					<Skeleton count={8}></Skeleton>
+				) : (
+					// Card
+					<div className="grid grid-cols-1 lg:grid-cols-4 gap-4 container mx-auto mb-5 lg:mb-10">
+						{visible.map((app) => (
+							<App key={app.id} app={app}></App>
+						))}
+					</div>
+				)
+			}
 			<div className="flex justify-center items-center mb-5 lg:mb-20">
 				<NavLink
 					onClick={scrollToTop}

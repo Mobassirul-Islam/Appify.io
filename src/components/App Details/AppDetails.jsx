@@ -13,6 +13,7 @@ import {
 	YAxis,
 } from "recharts";
 import { toast } from "react-toastify";
+import Skeleton from "../Skeleton/Skeleton";
 
 const AppDetails = () => {
 	const { id } = useParams();
@@ -20,7 +21,7 @@ const AppDetails = () => {
 	const [installed, setInstalled] = useState(false);
 
 	const app = apps.find((a) => String(a.id) === id);
-	if (loading) return <p>Loading....</p>;
+	if (loading) return <Skeleton count={1}></Skeleton>
 
 	const {
 		image,
