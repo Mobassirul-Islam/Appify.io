@@ -3,16 +3,60 @@ import useApps from "../../Hooks/useApps";
 import download from "../../assets/icon-downloads.png";
 import star from "../../assets/icon-ratings.png";
 import like from "../../assets/icon-review.png";
+import { useState } from "react";
+import {
+	Bar,
+	BarChart,
+	ResponsiveContainer,
+	Tooltip,
+	XAxis,
+	YAxis,
+} from "recharts";
 
 const AppDetails = () => {
 	const { id } = useParams();
-	const { apps, loading} = useApps();
+	const { apps, loading } = useApps();
+	const [installed, setInstalled] = useState(false);
 
 	const app = apps.find((a) => String(a.id) === id);
-
 	if (loading) return <p>Loading....</p>;
 
-	const { image, title, companyName, downloads, ratingAvg, reviews, size } = app || {};
+	const {
+		image,
+		title,
+		companyName,
+		downloads,
+		ratingAvg,
+		reviews,
+		size,
+		ratings,
+		description,
+	} = app || {};
+
+	const sortedRatings = [...ratings].sort((a, b) =>
+		b.name.localeCompare(a.name)
+	);
+
+	const handleInstall = () => {
+		const existingInstall = JSON.parse(localStorage.getItem("installList"));
+		let updatedInstall = [];
+		if (existingInstall) {
+			const isInstalled = existingInstall.some((a) => a.id === app.id);
+			if (isInstalled) {
+				alert("Already Installed");
+				return setInstalled(true);
+			}
+			updatedInstall = [...existingInstall, app];
+			setInstalled(true);
+			alert("Installed Successfully");
+		} else {
+			updatedInstall.push(app);
+			setInstalled(true);
+			alert("Installed Successfully");
+		}
+		localStorage.setItem("installList", JSON.stringify(updatedInstall));
+		setInstalled(true);
+	};
 
 	return (
 		<div className="container mx-auto">
@@ -55,13 +99,52 @@ const AppDetails = () => {
 						</div>
 					</div>
 					<div>
-						<button className="bg-[#00D390] text-white py-2 px-3 rounded-sm text-xl font-semibold cursor-pointer">
-							Install Now (<span>{size}</span> MB)
+						<button
+							onClick={handleInstall}
+							disabled={installed}
+							className={`bg-[#00D390] text-white py-2 px-3 rounded-sm text-xl font-semibold cursor-pointer`}
+						>
+							{installed ? "Installed" : "Install Now"} (<span>{size}</span> MB)
 						</button>
 					</div>
 				</div>
 			</div>
 			<hr className="border-[#00193120] mx-2 lg:mx-0 my-5 lg:my-10" />
+			{/* Chart */}
+			<div className="container mx-auto">
+				<h1 className="text-[#001931] text-2xl font-semibold mb-3 lg:mb-6 mx-2 lg:mx-0">
+					Ratings
+				</h1>
+				<div className="w-full h-96 px-2 lg:px-0">
+					<ResponsiveContainer className="" width="100%" height="100%">
+						<BarChart
+							width={500}
+							height={300}
+							data={sortedRatings}
+							layout="vertical"
+							barSize={20}
+						>
+							<XAxis type="number" axisLine={false} tickLine={false} />
+							<YAxis
+								type="category"
+								dataKey="name"
+								axisLine={false}
+								tickLine={false}
+							/>
+							<Tooltip />
+							<Bar dataKey="count" fill="#FF8811" />
+						</BarChart>
+					</ResponsiveContainer>
+				</div>
+			</div>
+			<hr className="border-[#00193120] mx-2 lg:mx-0 my-5 lg:my-10" />
+			{/* Description */}
+			<div className="mx-2 lg:mx-0 mb-5 lg:mb-20">
+				<h1 className="text-[#001931] text-2xl font-semibold mb-3 lg:mb-6">
+					Description
+				</h1>
+				<p className="text-[#627382] text-xl">{description}</p>
+			</div>
 		</div>
 	);
 };

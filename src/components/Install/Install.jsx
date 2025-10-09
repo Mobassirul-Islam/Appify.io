@@ -1,6 +1,13 @@
-import down from "../../assets/down.svg"
+import { useEffect, useState } from "react";
 
 const Install = () => {
+
+	const [appList, setAppList] = useState([]);
+	useEffect(()=>{
+		
+	}, [])
+
+
 	return (
 		<div className="container mx-auto">
 			<div className="text-center">
