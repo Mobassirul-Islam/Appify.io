@@ -12,6 +12,7 @@ import {
 	XAxis,
 	YAxis,
 } from "recharts";
+import { toast } from "react-toastify";
 
 const AppDetails = () => {
 	const { id } = useParams();
@@ -43,16 +44,16 @@ const AppDetails = () => {
 		if (existingInstall) {
 			const isInstalled = existingInstall.some((a) => a.id === app.id);
 			if (isInstalled) {
-				alert("Already Installed");
+				toast("Already Installed");
 				return setInstalled(true);
 			}
 			updatedInstall = [...existingInstall, app];
 			setInstalled(true);
-			alert("Installed Successfully");
+			toast("Installed Successfully");
 		} else {
 			updatedInstall.push(app);
 			setInstalled(true);
-			alert("Installed Successfully");
+			toast("Installed Successfully");
 		}
 		localStorage.setItem("installList", JSON.stringify(updatedInstall));
 		setInstalled(true);

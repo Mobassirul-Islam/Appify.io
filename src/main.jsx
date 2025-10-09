@@ -9,6 +9,7 @@ import Apps from "./components/Apps/Apps.jsx";
 import Root from "./Root.jsx";
 import AppDetails from "./components/App Details/AppDetails.jsx";
 import PageError from "./components/Page Error/PageError.jsx";
+import AppError from "./components/App Error/AppError.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "app/:id",
+		errorElement: <AppError></AppError>,
         Component: AppDetails,
       },
 			{ path: "install", Component: Install },
